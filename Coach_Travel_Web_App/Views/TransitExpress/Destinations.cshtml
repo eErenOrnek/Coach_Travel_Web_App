@@ -1,0 +1,31 @@
+﻿@model List<Destination>
+@{
+    ViewData["Title"] = "Transit Express - Destinations";
+    Layout = "~/Views/Shared/_ContentLayout.cshtml";
+}
+
+<div class="container destinations">
+    <h3 class="display-4 text-center">All Destinations</h3>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            @foreach (var dest in Model)
+            {
+                <div class="card text-center mb-4">
+                    <div class="card-header">
+                        Journey
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">@dest.CityFrom.Name - @dest.CityTo.Name</h5>
+                        <p class="card-text text-xl-center">@dest.Price TL</p>
+                        <a href="#" class="btn btn-warning">Buy</a>
+                    </div>
+                    <div class="card-footer text-dark font-weight-bold">
+                        @dest.Date
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

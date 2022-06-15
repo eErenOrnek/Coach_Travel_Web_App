@@ -1,0 +1,31 @@
+﻿@model List<Destination>
+@{
+    ViewData["Title"] = "Transit Express - Search Results";
+    Layout = "~/Views/Shared/_ContentLayout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row destinations">
+        <div class="col-md-12">
+            @foreach (var dst in Model)
+            {
+                <div class="card text-center">
+                    <div class="card-header">
+                        JOURNEY
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">@dst.CityFrom.Name - @dst.CityTo.Name</h5>
+                        <p class="card-text">Direct</p>
+                        <a href="#" class="btn btn-primary">Buy</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        @dst.Date
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+

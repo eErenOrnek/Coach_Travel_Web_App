@@ -1,0 +1,71 @@
+﻿@model CitiesModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Header -->
+<header id="header" class="header">
+    <div class="header-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-container">
+                        <h1>COACH <span id="js-rotating">SERVICES, TRAVELS, HIRE</span></h1>
+                        <p class="p-heading p-large">Aria is a top consultancy company specializing in business growth using online marketing and conversion optimization tactics</p>
+                        <a class="btn-solid-lg page-scroll" href="#intro">FIND YOUR JOURNEY</a>
+                    </div>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of header-content -->
+</header> <!-- end of header -->
+<!-- end of header -->
+<!-- Intro -->
+<div id="intro" class="basic-1">
+    <div class="container">
+        <form asp-controller="Home" asp-action="FindResults" method="get">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div><span class="text-dark font-weight-bold text-lg-center">From:</span></div>
+                    <div>
+                        <select class="custom-select" name="cityFromId" id="cityFromBox">
+                            <option class="dropdown-item" value="-1"> </option>
+                            @foreach (var item in Model.CitiesFrom)
+                            {
+                                <option class="dropdown-item" value="@item.CityFromId">@item.Name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div><span class="text-dark font-weight-bold text-lg-center">To:</span></div>
+                    <div>
+                        <select class="custom-select" name="cityToId" id="cityToBox">
+                            <option class="dropdown-item" value="-1"> </option>
+                            @foreach (var item in Model.CitiesTo)
+                            {
+                                <option class="dropdown-item" value="@item.CityToId">@item.Name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div><span class="text-dark font-weight-bold text-lg-center">Departure Date:</span></div>
+                    <div><input class="form-control-lg" type="date" name="q" /></div>
+                </div>
+                <div class="col-lg-3 mt-4">
+                    <button asp-controller="TransitExpress" asp-action="FindResults" type="submit" class="btn btn-warning text-white">Search</button>
+                </div>
+            </div> <!-- end of row -->
+        </form>
+    </div> <!-- end of container -->
+    <div class="container mt-2">
+        <img src="~/TransitExpressTemplate/images/istanbul.jpg" class="w-100 h-100" alt="City Image" id="cityImg" />
+    </div>
+</div> <!-- end of basic-1 -->
+<!-- end of intro -->
+
+<script>
+
+</script>
